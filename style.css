@@ -400,6 +400,9 @@ x-layout>x-body>article{
     /* height: 100%;
     height: -webkit-fill-available; */
 width: 100%;
+width: auto;
+width: -moz-available;
+width: -webkit-fill-available;
     height: auto;
     overflow: auto;
     overflow: overlay;
