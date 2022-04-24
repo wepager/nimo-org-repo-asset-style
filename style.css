@@ -89,10 +89,7 @@ flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-img-wrapper[error]>img{
-    display:none;
-}
-img-wrapper[pending]{
+img-wrapper{
     min-width: 200px;
     min-height: 200px;
     /* border-radius: 12px;
@@ -100,6 +97,14 @@ img-wrapper[pending]{
     -moz-border-radius: 12px;
     -ms-border-radius: 12px;
     -o-border-radius: 12px; */
+}
+
+img-wrapper[loaded="false"]>img{
+    display:none;
+}
+img-wrapper[loaded="true"]{
+    min-width: auto;
+    min-height: auto;
 }
 
 img-wrapper>img{
@@ -111,11 +116,12 @@ img-wrapper>img{
     max-width: 100%;
     max-height: 100%;
 }
-img-wrapper>img-cover{
+
+img-wrapper[loaded="true"]>img-cover{
     display: none;
 }
 
-img-wrapper[pending]>img-cover{
+img-wrapper>img-cover{
     width: 100%;
     height: 100%;
     background: rgba(161, 161, 161, 0.6);
@@ -125,7 +131,7 @@ img-wrapper[pending]>img-cover{
     justify-content: center;
     align-items: center;
 }
-img-wrapper[pending]>img-cover::before{
+img-wrapper>img-cover::before{
     content: "loading image...";
     color: #ffffff;
 }
@@ -134,8 +140,6 @@ img-wrapper[pending]>img-cover::before{
 p {
     opacity: 0.9;
     max-width: 600px;
-    /*background-color: rgb(86, 86, 255);
-    */color: #000000;
     padding: 6px 14px;
     margin: 12px 0;
     border-radius: 16px;
@@ -156,7 +160,11 @@ a{
     padding: 6px 14px;
 }
 
-a.classic{
+a.plain{
+    text-decoration: none;
+}
+
+    a.classic{
     text-decoration: none;
     background-color: #4245ff;
     color: #ffffff;
@@ -388,10 +396,15 @@ x-layout[with-header] x-menu{
 display: block;
     flex-direction: column;
 }
-
-x-layout[with-header] x-body{
-    padding-top: 43px;
+x-layout>x-body{
+    display: flex;
     overflow: hidden;
+}
+
+x-layout[with-header]>x-body{
+    /* padding: 8px; */
+    padding-top: 43px;
+    /* padding-bottom: 8px; */
     height: auto;
     display: flex;
 }
@@ -404,10 +417,13 @@ width: auto;
 width: -moz-available;
 width: -webkit-fill-available;
     height: auto;
+    /* height: 100%; */
+    /* height: -moz-available; */
+/* height: -webkit-fill-available; */
     overflow: auto;
     overflow: overlay;
 }
 x-layout>x-body>article[name="window-background"]{
 /* margin-top: 43px; */
-padding: 8px;
+   padding:8px;
 }
