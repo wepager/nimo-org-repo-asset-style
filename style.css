@@ -122,11 +122,11 @@ img-wrapper {
     -o-border-radius: 12px; */
 }
 
-img-wrapper[xdata-loaded="false"]>img {
+img-wrapper[loaded="false"]>img {
     display: none;
 }
 
-img-wrapper[xdata-loaded="true"] {
+img-wrapper[loaded="true"] {
     min-width: auto;
     min-height: auto;
 }
@@ -141,7 +141,7 @@ img-wrapper>img {
     max-height: 100%;
 }
 
-img-wrapper[xdata-loaded="true"]>img-cover {
+img-wrapper[loaded="true"]>img-cover {
     display: none;
 }
 
